@@ -1,6 +1,7 @@
 package com.ocdsoft.bacta.soe.json.schema;
 
 import com.sun.codemodel.JClassContainer;
+import com.sun.codemodel.JFieldVar;
 import com.sun.codemodel.JType;
 import org.jsonschema2pojo.rules.Rule;
 import org.jsonschema2pojo.rules.RuleFactory;
@@ -14,5 +15,11 @@ public class SoeRuleFactory extends RuleFactory {
     public Rule<JClassContainer, JType> getTypeRule() {
         return new SoeTypeRule(this);
     }
+
+    @Override
+    public Rule<JFieldVar, JFieldVar> getDefaultRule() {
+        return new SoeDefaultRule(this);
+    }
+
 
 }
